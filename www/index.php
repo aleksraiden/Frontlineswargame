@@ -13,6 +13,16 @@ if(!ob_start("ob_gzhandler")) ob_start();
 ini_set('date.timezone', 'GMT+0');
 
 //общий документ рут
+$_domain = $_SERVER['HTTP_HOST'];
+
+if( (strpos($_domain, 'www.') !== 0)   && (strpos($_domain, 'game.') !== 0))
+{
+    header('Location: http://www.' . $_domain);
+    exit();
+}
+$_tmpd = explode('.', $_domain);
+$_domain = $_tmpd[count($_tmpd)-2] . '.' . $_tmpd[count($_tmpd)-1];
+
 $_SERVER['DOCUMENT_ROOT'] = '/home/' . $_domain;
 
 $config = parse_ini_file( $_SERVER['DOCUMENT_ROOT'] . '/game/config.ini', true);
@@ -99,9 +109,9 @@ $url = $config['Default'];
 
     <hr>
 	<div style="background-image:url('<?php echo $url['static_domain']; ?>/img/main_page.jpg');height:400px;">
-		<div class="jumbotron" >
+		<div class="jumbotron" style="position:relative;top:-68px;">
 			<h1>Frontlines War</h1>
-			<p class="lead">Фронт войны уже здесь! Сражайся за свой дом!</p>
+			<!--<p class="lead">Фронт войны уже здесь! Сражайся за свой дом!</p> -->
 			<!-- <a class="btn btn-large btn-success" href="#">Sign up today</a> -->
 		</div>	
 	</div>
