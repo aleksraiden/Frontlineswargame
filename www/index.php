@@ -12,11 +12,10 @@ if(!ob_start("ob_gzhandler")) ob_start();
 
 ini_set('date.timezone', 'GMT+0');
 
-//загружаем инициализацию библиотек
-require_once('../libs/loader.php');
+//общий документ рут
+$_SERVER['DOCUMENT_ROOT'] = '/home/' . $_domain;
 
-//загружаем маппинг URL
-require_once('../game/connectManager.php');
+$config = parse_ini_file( $_SERVER['DOCUMENT_ROOT'] . '/game/config.ini', true);
 
 //для укорочения ссылок
 $url = $config['Default'];
