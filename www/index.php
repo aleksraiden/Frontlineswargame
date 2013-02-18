@@ -116,29 +116,29 @@ $url = $config['Default'];
 		</div>	
 	</div>
 	<div style="text-align:center;padding-top:0px;">
-			<h3>Выбери себе персонажа</h3>
-			<a class="btn btn-small btn-success" href="<?php echo $url['app_domain'] . '/?player=model'; ?>">СуперМодель</a>
+			<h3>Выбери свой ник</h3>
+			<a class="btn btn-small btn-success" href="<?php echo $url['app_domain'] . '/?player=raiden'; ?>">Raiden</a>
 			&nbsp;&nbsp;
-			<a class="btn btn-small btn-danger" href="<?php echo $url['app_domain'] . '/?player=bully'; ?>">Гопник</a>			
+			<a class="btn btn-small btn-danger" href="<?php echo $url['app_domain'] . '/?player=lizard'; ?>">Lizard</a>			
 	</div>
     <hr style="margin:15px 0px;">
 
     <div class="row-fluid marketing">
         <div class="span6">
-            <h4>Модели</h4>
-            <p>Красивые и обворожительные красотки, обученные смертельным приемам</p>
+            <h4>Эпичные битвы</h4>
+            <p>Человечество против неустрашимых инопланетных захватчиков</p>
 
-            <h4>Гопники</h4>
-            <p>Жестокие и беспощадные отбросы с дна криминального мира</p>
+            <h4>Пять фракций</h4>
+            <p>Свободные стрелки, Правительство, Орден, Легион, Компания или же ты за Отступников?</p>
 
         </div>
 
         <div class="span6">
-            <h4>20 бойцов</h4>
-            <p>Каждый боец обладает своими навыками и способностями</p>
+            <h4>Более 100 видов оружия</h4>
+            <p>Командуй артилерией, пехотой и десатом, спецвойска и разведчики также все во внимании</p>
 
-            <h4>100+ приемов</h4>
-            <p>Стойки, удары руками и ногами, броски и захваты - ваш смертельный арсенал</p>
+            <h4>Тактика и стратегия</h4>
+            <p>Тактические бои за территории - это только начало!</p>
         </div>
     </div>
 
@@ -151,7 +151,7 @@ $url = $config['Default'];
 </div> <!-- /container -->
 
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="<?php echo $url['static_domain']; ?>/js/jquery/jquery-1.8.3.min.js"></script>
+<script src="<?php echo $url['static_domain']; ?>/js/jquery/jquery-1.9.1.min.js"></script>
 
 </body>
 </html>
