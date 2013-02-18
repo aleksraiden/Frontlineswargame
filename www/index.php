@@ -98,10 +98,10 @@ $url = $config['Default'];
     </div>
 
     <hr>
-	<div style="background-image:url('mainp5.png');height:400px;">
+	<div style="background-image:url('<?php echo $url['static_domain']; ?>/img/main_page.jpg');height:400px;">
 		<div class="jumbotron" >
-			<h1>СуперМодели <br /><font style="color:red;">vs</font><br /> Гопники</h1>
-			<p class="lead">Сражайся на стороне прекрасных красоток моделей или брутальных криминальных отбросов!</p>
+			<h1>Frontlines War</h1>
+			<p class="lead">Фронт войны уже здесь! Сражайся за свой дом!</p>
 			<!-- <a class="btn btn-large btn-success" href="#">Sign up today</a> -->
 		</div>	
 	</div>
