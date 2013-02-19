@@ -15,8 +15,8 @@
 var gCards = {
 	types: ['hagger','human'],
 	
-	//игроки
-	avatars: {
+	//юнити обоих сторон 
+	units: {
 		'hagger' : [
 			{
 				id: 1,
