@@ -30,6 +30,34 @@ $config = parse_ini_file( $_SERVER['DOCUMENT_ROOT'] . '/game/config.ini', true);
 //для укорочения ссылок
 $url = $config['Default'];
 
+
+if (array_key_exists('GAME_USER', $_COOKIE))
+{
+	$user = json_decode($_COOKIE['GAME_USER'], true);
+	
+	header('Location: ' . $url['app_domain'] . '/');
+	exit();
+}
+else
+if ((array_key_exists('token', $_POST)) && (!empty($_POST['token'])))
+{
+	$s = file_get_contents('http://ulogin.ru/token.php?token=' . $_POST['token'] . '&host=' . $_SERVER['HTTP_HOST']);
+
+	$user = json_decode($s, true);
+
+//$user['network'] - соц. сеть, через которую авторизовался пользователь
+//$user['identity'] - уникальная строка определяющая конкретного пользователя соц. сети
+//$user['first_name'] - имя пользователя
+//$user['last_name'] - фамилия пользователя
+
+	setcookie('GAME_USER', $s, time() + 6 * 3600, '/', '.' . $_domain, false, true);
+}
+
+
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -92,6 +120,16 @@ $url = $config['Default'];
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo $url['static_domain']; ?>/img/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="<?php echo $url['static_domain']; ?>/img/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="<?php echo $url['static_domain']; ?>/img/ico/favicon.png">
+	
+	<script>
+	<?php
+		if (!empty($user))
+		{		
+			echo 'var gUser = ' . json_encode($user) . ';  console.log(gUser); ';		
+		}
+	?>
+	
+	</script>
 </head>
 
 <body>
@@ -116,10 +154,16 @@ $url = $config['Default'];
 		</div>	
 	</div>
 	<div style="text-align:center;padding-top:0px;">
-			<h3>Выбери свой ник</h3>
+			<h3>Играть!</h3>
+			
+			<script src="//ulogin.ru/js/ulogin.js"></script>
+<div id="uLogin" data-ulogin="display=panel;fields=first_name,last_name,photo;providers=vkontakte,facebook,mailru,twitter,google,odnoklassniki;hidden=;redirect_uri=http://www.frontlineswar.com"></div>
+			
+			<!--
 			<a class="btn btn-small btn-success" href="<?php echo $url['app_domain'] . '/?player=raiden'; ?>">Raiden</a>
 			&nbsp;&nbsp;
-			<a class="btn btn-small btn-danger" href="<?php echo $url['app_domain'] . '/?player=lizard'; ?>">Lizard</a>			
+			<a class="btn btn-small btn-danger" href="<?php echo $url['app_domain'] . '/?player=lizard'; ?>">Lizard</a>	
+			-->
 	</div>
     <hr style="margin:15px 0px;">
 

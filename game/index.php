@@ -20,6 +20,13 @@ require_once('../game/connectManager.php');
 
 //для укорочения ссылок
 $url = $config['Default'];
+
+if (array_key_exists('GAME_USER', $_COOKIE))
+{
+	$user = $_COOKIE['GAME_USER'];
+}
+
+
 /**
  if (!isset($_REQUEST['login']))
      die('Invalid login to game');
@@ -174,16 +181,16 @@ $url = $config['Default'];
 	
     <script>
 		
-		function _log(i){
+		function fbug(i){ 
 			if (typeof(console) != 'undefined')
 				console.log(i);
 		}
 		
         var gPlayer = {
-			type: '<?php echo $_REQUEST['player']; ?>', //bully
+			type: 'human', //bully
+			user: <?php echo json_decode($user, true); ?>,
 			id: 1,
-			name: 'Новый Игрок',
-			
+
 			avatar: null, //карта аватара 
 			deka: null, 
 			
@@ -266,15 +273,15 @@ $url = $config['Default'];
 
 </head>
 
-<body style="">
+<body style="background-color:#D6D0D2;">
 
 <div class="container-fluid" style="">
     <div class="row-fluid">
 			
         <div class="span12">
             <!--Body content-->
-			<div>
-				<h3>СуперМодели <font style="color:red;">vs</font> Гопников - файтинг карточная он-лайн игра <span class="label label-important" style="position:absolute;">Gameplay preview</span></h3>
+			<div style="background-color:#CFC6CA;">
+				<h3>Frontlines War: Линия фронта - он-лайн карточная тактическая стратегия &nbsp;<span class="label label-important" style="position:absolute;">Gameplay preview</span></h3>
 			</div>	
 			 
 			<div class="main_panel_el" style="">
@@ -395,10 +402,10 @@ $url = $config['Default'];
 </div>
 
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="<?php echo $url['static_domain']; ?>/js/jquery/jquery-1.8.3.min.js"></script>
+<script src="<?php echo $url['static_domain']; ?>/js/jquery/jquery-1.9.1.min.js"></script>
 <script src="<?php echo $url['static_domain']; ?>/js/libs/bootstrap.min.js"></script>
 <script src="<?php echo $url['static_domain']; ?>/js/libs/modernizr.custom.js"></script>
-<script src="<?php echo $url['static_domain']; ?>/js/libs/underscore.js"></script>
+<script src="<?php echo $url['static_domain']; ?>/js/libs/lodash.min.js"></script>
 <script src="<?php echo $url['static_domain']; ?>/js/plugins/jquery.baraja.js"></script>
 <script src="<?php echo $url['static_domain']; ?>/js/plugins/jquery.easing.js"></script>
 <script src="<?php echo $url['static_domain']; ?>/js/plugins/jquery.pnotify.js"></script>
