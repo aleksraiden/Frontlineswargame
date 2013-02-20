@@ -33,30 +33,6 @@ var gBattle = {
 	
 	//начало сражения
 	init: function(player1, player2){
-_log(player1);
-		if (player1.avatar.type == 'model')
-			player1.avatar.typeName = '<span class="label label-warning" style="margin-bottom:4px;">СуперМодель</span>';
-		else
-			player1.avatar.typeName = '<span class="label label-inverse" style="margin-bottom:4px;">Гопник</span>';
-			
-		if (player2.avatar.type == 'model')
-			player2.avatar.typeName = '<span class="label label-warning" style="margin-bottom:4px;">СуперМодель</span>';
-		else
-			player2.avatar.typeName = '<span class="label label-inverse" style="margin-bottom:4px;">Гопник</span>';
-			
-		//
-		player1.avatar.strike = gUtils.rand(3, 16);
-		player2.avatar.strike = gUtils.rand(3, 20);
-		
-		player1.avatar.block = gUtils.rand(2, 8);
-		player2.avatar.block = gUtils.rand(3, 11);
-		
-		player1.avatar.flee = gUtils.rand(3, 6);
-		player2.avatar.flee = gUtils.rand(1, 3);
-		
-	
-		gBattle.players[0] = player1; //это всегда игрок текущий 
-		gBattle.players[1] = player2; //это противник 
 	
 		$('.getMyGoPoints').on('click', function(){
 			gBattle.randomGenInit();
@@ -67,45 +43,6 @@ _log(player1);
 		});
 		
 		gBattle.cacheCube();
-
-
-		//рендерим обоих игроков 
-		var el = $('.player_vs_player_deka');
-		
-
-		
-		
-		el.find('.player_0_el').empty().append( '<li class="card card_el">' + 
-			''+player1.avatar.typeName+'' + 
-			'<img src="'+gUrl.stat+'/img/cards/'+ player1.avatar.type + '_' + player1.avatar.id + '.jpg" alt="image1" /><h4>'+player1.avatar.name+'</h4><p>'+player1.avatar.desc+'</p>' + 
-			'<p><div>Данные: <span class="badge badge-success" rel="tooltip" title="Сила удара или приема">'+player1.avatar.strike+'</span> &nbsp;&nbsp; <span class="badge badge-important" rel="tooltip" title="Сила блока против удара">'+player1.avatar.block+'</span> &nbsp;&nbsp; <span class="badge badge-info" rel="tooltip" title="Гибкость и способность к увороту">8</span></div></p>' + 
-			'<div class="progress progress-warning progress-striped"><div class="bar" style="width: 100%"></div></div><div style="text-align:center;color:green;font-weight:bold;" style="player_0_health">Жизнь: 100</div></li>' );
-			
-		el.find('.player_1_el').empty().append( '<li class="card card_el">' + 
-			''+player2.avatar.typeName+'' + 
-			'<img src="'+gUrl.stat+'/img/cards/'+ player2.avatar.type + '_' + player2.avatar.id + '.jpg" alt="image1" /><h4>'+player2.avatar.name+'</h4><p>'+player2.avatar.desc+'</p>' + 
-			'<p><div>Данные: <span class="badge badge-success" rel="tooltip" title="Сила удара или приема">2</span> &nbsp;&nbsp; <span class="badge badge-important" rel="tooltip" title="Сила блока против удара">6</span> &nbsp;&nbsp; <span class="badge badge-info" rel="tooltip" title="Гибкость и способность к увороту">8</span></div></p>' + 
-			'<div class="progress progress-danger progress-striped"><div class="bar" style="width: 100%"></div></div><div style="text-align:center;color:red;font-weight:bold;" style="player_0_health">Жизнь: 100</div></li>' );
-
-		el.find('.card_block').baraja();  // baraja-container').baraja();
-		el.find('[rel=tooltip]').tooltip();
-		
-		
-		gBattle.playerDeka = $('.main_panel_el .player_card_deka').find('.baraja-container').baraja();
-		
-		gBattle.playerDeka.fan( {
-			speed : 100,
-			easing : 'ease-out',
-			range : 45,
-			direction : 'right',
-			origin : { x : 25, y : 100 },
-			center : true
-		});
-		
-		$('.main_panel_el .player_card_deka').find('.combatTypeCard').click(function(e){
-			var _type = $(e.currentTarget).attr('card-type');
-				gBattle.playerCardTypeChange(gBattle.players[0], _type, true);
-		});
 		
 	},
 	
@@ -165,6 +102,11 @@ _log(player1);
 			
 			$('.main_panel_el').find('.curRoundUserpoints_el').html('осталось <span class="curRoundUserpoints">'+gBattle.curRoundpoints+'</span> действий');
 			//$('.main_panel_el').find('.curRoundUserpoints').html( gBattle.curRoundpoints );
+			
+			
+			$('#card_p6').addClass('animated flash');
+			
+			
 			
 		}, 3000);
 	},
