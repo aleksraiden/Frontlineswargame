@@ -374,7 +374,7 @@ var gCards = {
 	},
 
 	//выбирает рандомного аватара
-	getAvatars: function(type){
+	getAvatars: function(){
 		var _id = null;
 			_id = gUtils.array_rand(gCards.avatars[ type ], 1);			
 			
