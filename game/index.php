@@ -289,6 +289,7 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 				<center>
 					<table>
 						<tr>
+							<!--
 							<td class="cube_block" style="width:270px;text-align:center;">
 								<center>
 									<h2 class="playerRoundName" style="color:green;"> Ваш ход! </h2>
@@ -316,7 +317,8 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 								</center>
 
 							</td>
-							<td class="card_block" style="width:210px;">
+							-->
+							<td class="card_block" style="width:;">
 								<ul class="baraja-container player_0_el"></ul>
 							</td>
 							<td style="width:50px;padding:10px;text-align:center;">
@@ -368,20 +370,17 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 						
 						<ul class="baraja-container" style="">
 							<li class="card card_el combatTypeCard" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
-								<div style="text-align:left;"><span class="label">Стойки</span> <span class="badge badge-info pull-right">2</span></div>
-								<img src="<?php echo $url['static_domain']; ?>/img/cards/stance_default.jpg" alt="image1" /><h4>Боевые стойки</h4><p>Начальные позиции в любой драке</p>
+								<div style="text-align:left;margin-top:-5px;margin-bottom:2px;">
+									<!--<span class="badge badge-info">2</span>-->
+									<span class="label">пехота</span> 
+									<span class="pull-right">
+										<span class="badge badge-warning">10</span>
+										<span class="badge badge">12</span>
+									</span>
+								</div>
+								<img src="<?php echo $url['static_domain']; ?>/img/cards/human_default.png" alt="image1" /><h4>Тяжелый штурмовик</h4><p>Суперсолдат на поле боя, способный собой заменить небольшой пехотный отряд в полной выкладке</p>
 								
-							</li>
-							<li class="card card_el combatTypeCard" card-type="strike" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
-								<div style="text-align:left;"><span class="label label-success">Удары</span> <span class="badge badge-info pull-right">2</span></div>
-								<img src="<?php echo $url['static_domain']; ?>/img/cards/strike_default.jpg" alt="image1" /><h4>Удары руками и ногами</h4><p>Наносите повреждения противнику</p>
-								<span class="badge">карт: 2</span>
-							</li>	
-							<li class="card card_el combatTypeCard" card-type="block" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
-								<div style="text-align:left;"><span class="label label-important">Блоки</span> <span class="badge badge-info pull-right">2</span></div>
-								<img src="<?php echo $url['static_domain']; ?>/img/cards/block_default.jpg" alt="image1" /><h4>Блоки</h4><p>Защита от ударов врага</p>
-								<span class="badge">карт: 2</span>
-							</li>	
+							</li>								
 						</ul>
 			
 							
