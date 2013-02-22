@@ -6,6 +6,16 @@ var gBattle = {
 
 	players: [],
 	
+	//тестовые настройки 
+	// gBattle.ctrl.attackx2
+	// gBattle.ctrl.random_def
+	ctrl:{
+		attackx2: false, //увеличить атаку всем в 2 раза 
+		random_def: false, //если включено выбирается не противоположная а ранломная карта для атаки
+		range_strike: false //атака не так как у карты, а в диапазоне от -50 до +200% (до attackx2)
+	
+	},
+	
 	curPlayerPos: 0, //кто сейчас ходит 
 	playerDeka: null, //барайя обьект карт юзера 
 	maxCardPerRound: 3, //сколько карт максимум в раунд можно выложить 
@@ -209,6 +219,16 @@ var gBattle = {
 			if (_att == 5) _def = 2;
 			if (_att == 6) _def = 3;
 			
+			if (gBattle.ctrl.random_def == true)
+			{
+				if (_att <= 3)
+					_def = gUtils.rand(4, 6);
+				else
+					_def = gUtils.rand(1, 3);			
+			}
+			
+			
+			
 			//проверим на метрвых 
 			if (gBattle.curRoundDeka[ _att ].status == 'dead')
 			{
@@ -243,7 +263,15 @@ var gBattle = {
 //fbug(c_att);
 //fbug(c_def);		
 		//это сила выстрела 
-		var attStrike = c_att.strike;
+		var attStrike = c_att.strike;		
+		
+		if (gBattle.ctrl.range_strike == true)
+		{
+			attStrike = gUtils.rand(Math.ceil(attStrike/2), attStrike*2);
+		}	
+		
+		if (gBattle.ctrl.attackx2 == true)
+			attStrike = attStrike * 2;
 		
 		//а может критикал? 
 		var prcCrit = gUtils.rand(1, 100);
@@ -251,22 +279,22 @@ fbug('Шанс критического удара: ' + c_att.extCrit);
 		if (prcCrit <= c_att.extCrit)
 		{
 			//ура, критический выстрел 
-			$('.card_block_' + att).addClass('wobble').popover({
+			$('.card_block_' + def).addClass('wobble').popover({
 				placement: _p,
 				trigger:'manual',
 				title: 'Отличный удар!',
 				html: true,
-				content: '<b><font style="color:green;">СуперАтака!</font></b>'			
+				content: '<b><font style="color:red;">СуперАтака!</font></b>'			
 			}).popover('show');
 			
 			//и это сразу длбавляет 
 			gBattle.curRoundDeka[ att ].extCrit = gBattle.curRoundDeka[ att ].extCrit + 2;	
 
 			setTimeout(function(){
-				$('.card_block_' + att).popover('destroy');
+				$('.card_block_' + def).popover('destroy');
 			}, 1000);
 
-			attStrike = attStrike * 3;			
+			attStrike = attStrike * 2;			
 		}
 		
 		

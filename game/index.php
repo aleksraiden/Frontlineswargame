@@ -135,6 +135,8 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 	
 	<link href="<?php echo $url['static_domain']; ?>/css/jquery.pnotify.default.css" rel="stylesheet">
 	<link href="<?php echo $url['static_domain']; ?>/css/jquery.pnotify.default.icons.css" rel="stylesheet">
+	<link href="<?php echo $url['static_domain']; ?>/css/bootstrap-toggle-buttons.css" rel="stylesheet">
+	
 	
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -206,6 +208,27 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 				gPlayer.deka = gCards.getDeka();
 				_player2.deka = gCards.getDeka();
 */				
+				
+				
+				$('#ctrl_btn_attack_x2').toggleButtons({
+					onChange: function ($el, status, e) {
+						gBattle.ctrl.attackx2 = status;
+					}
+				});
+				$('#ctrl_btn_random_def').toggleButtons({
+					onChange: function ($el, status, e) {
+						gBattle.ctrl.random_def = status;
+					}
+				});
+				$('#ctrl_btn_range_strike').toggleButtons({
+					onChange: function ($el, status, e) {
+						gBattle.ctrl.range_strike = status;
+					}
+				});
+				
+				
+				
+				
 				//а теперь инит сражения 
 				gBattle.init(gPlayer);				
 					
@@ -264,6 +287,34 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 				<center>
 					<table>
 						<tr>
+							<td rowspan="3" style="width:200px;" valign="top" align="center">
+								<div style="margin:10px;">
+									<div style="text-align:center;">
+										<label for="checkbox1">Атака x2</label>
+									</div>
+									<div id="ctrl_btn_attack_x2">
+										<input id="checkbox1" type="checkbox">
+									</div>
+								</div>
+								<div style="margin:10px;">
+									<div style="text-align:center;">
+										<label for="checkbox2">Случайный противник</label>
+									</div>
+									<div id="ctrl_btn_random_def">
+										<input id="checkbox2" type="checkbox">
+									</div>
+								</div>
+								<div style="margin:10px;">
+									<div style="text-align:center;">
+										<label for="checkbox3">Диапазон атак (-0.5 +1.5)</label>
+									</div>
+									<div id="ctrl_btn_range_strike">
+										<input id="checkbox3" type="checkbox">
+									</div>
+								</div>
+								
+								
+							</td>
 							<td>
 							<div class="card_block_1 animated">
 								<ul class="baraja-container baraja-container-mini" style="">
@@ -563,6 +614,8 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 <script src="<?php echo $url['static_domain']; ?>/js/plugins/jquery.baraja.js"></script>
 <script src="<?php echo $url['static_domain']; ?>/js/plugins/jquery.easing.js"></script>
 <script src="<?php echo $url['static_domain']; ?>/js/plugins/jquery.pnotify.js"></script>
+<script src="<?php echo $url['static_domain']; ?>/js/plugins/jquery.toggle.buttons.js"></script>
+
 
 
 <script>
