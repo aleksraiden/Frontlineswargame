@@ -10,8 +10,100 @@ var gBattle = {
 	playerDeka: null, //барайя обьект карт юзера 
 	maxCardPerRound: 3, //сколько карт максимум в раунд можно выложить 
 	
-	curRoundCards: [[],[]], //обоих игроков 
-	curRoundDeka:[[],[]],
+	//curRoundCards: [[],[]], //обоих игроков 
+	curRoundDeka:[
+		'',
+		{
+			id: 2,
+			name: 'Тяжелый пехотинец', 
+			type: 'human', 
+			desc: 'Рядовой солдат пехотных войск', 
+			rarity: 3, 
+			
+			status: 'battle', //dead
+			
+			health: 100, 
+			strike: 15,
+			block: 6,
+			extCrit: 7, //% вероятности нанести крит удар (х3)
+			flee: 2
+		},
+		{
+			id: 2,
+			name: 'Тяжелый пехотинец', 
+			type: 'human', 
+			desc: 'Рядовой солдат пехотных войск', 
+			rarity: 3, 
+			
+			status: 'battle', //dead
+			
+			health: 100, 
+			strike: 15,
+			block: 6,
+			extCrit: 7, //% вероятности нанести крит удар (х3)
+			flee: 2
+		},
+		{
+			id: 2,
+			name: 'Тяжелый пехотинец', 
+			type: 'human', 
+			desc: 'Рядовой солдат пехотных войск', 
+			rarity: 3, 
+			
+			status: 'battle', //dead
+			
+			health: 100, 
+			strike: 15,
+			block: 6,
+			extCrit: 7, //% вероятности нанести крит удар (х3)
+			flee: 2
+		},
+		{
+			id: 6,
+			name: 'Герник',
+			type: 'hagger',  
+			desc: 'Жестокие и беспощадные солдаты, которых сложно назвать даже ксеноморфом',
+			rarity: 12,
+			
+			status: 'battle', //dead
+			
+			health: 100, 
+			strike: 14, 
+			block: 4, 
+			extCrit: 5, //% вероятности нанести крит удар (х3)
+			flee: 3 
+		},
+		{
+			id: 6,
+			name: 'Герник',
+			type: 'hagger',  
+			desc: 'Жестокие и беспощадные солдаты, которых сложно назвать даже ксеноморфом',
+			rarity: 12,
+			
+			status: 'battle', //dead
+			
+			health: 100, 
+			strike: 14, 
+			block: 4, 
+			extCrit: 5, //% вероятности нанести крит удар (х3)
+			flee: 3 
+		},
+		{
+			id: 6,
+			name: 'Герник',
+			type: 'hagger',  
+			desc: 'Жестокие и беспощадные солдаты, которых сложно назвать даже ксеноморфом',
+			rarity: 12,
+			
+			status: 'battle', //dead
+			
+			health: 100, 
+			strike: 14, 
+			block: 4, 
+			extCrit: 5, //% вероятности нанести крит удар (х3)
+			flee: 3 
+		}
+	],
 	
 	curRoundpoints: 0, //сколько выпало на этом раунде
 	
@@ -72,17 +164,20 @@ var gBattle = {
 	_cubeAnimationTimer: null, 
 	_cubeEl: null,
 	currentPoints:[],
+	
+	//allCountOfSteps: 
+	
+	
 	randomGenInit: function(){
 		//if (gBattle._cubeEl.find('.getMyGoPoints').hasClass('disabled')) return;
 		
 		clearInterval(gBattle._cubeAnimationTimer);
 		
 		gBattle._cubeEl = $('.main_panel_el');
-		gBattle._cubeEl.find('.getMyGoPoints').addClass('disabled');
+		gBattle._cubeEl.find('.getMyGoPoints').addClass('disabled').removeClass('animated bounce');
 		
 		gBattle._cubeAnimationTimer = setInterval(function(){			
 			gBattle._cubeEl.find('.cube_1').prop('src', gUrl.stat + '/img/cube/'+ gUtils.rand(1, 6) +'.png');			
-			gBattle._cubeEl.find('.cube_2').prop('src', gUrl.stat + '/img/cube/'+ gUtils.rand(1, 6) +'.png');		
 		}, 25);	
 		
 		
@@ -91,21 +186,40 @@ var gBattle = {
 			clearInterval(gBattle._cubeAnimationTimer);
 			
 			gBattle._cubeEl.find('.cube_1').prop('src', gUrl.stat + '/img/cube/'+ gBattle.currentPoints[0] +'.png');			
-			gBattle._cubeEl.find('.cube_2').prop('src', gUrl.stat + '/img/cube/'+ gBattle.currentPoints[1] +'.png');
 			
 			// currentPoints
-			gBattle._cubeEl.find('.currentPoints').html( gBattle.currentPoints[0] + gBattle.currentPoints[1] );
+			gBattle._cubeEl.find('.currentPoints').html( gBattle.currentPoints[0] );
 			
-			gBattle._cubeEl.find('.getMyGoPoints').removeClass('disabled');
-			
-			gBattle.curRoundpoints = gBattle.currentPoints[0] + gBattle.currentPoints[1];
+			gBattle.curRoundpoints = gBattle.currentPoints[0];
 			
 			$('.main_panel_el').find('.curRoundUserpoints_el').html('осталось <span class="curRoundUserpoints">'+gBattle.curRoundpoints+'</span> действий');
 			//$('.main_panel_el').find('.curRoundUserpoints').html( gBattle.curRoundpoints );
 			
 			
-			$('#card_p6').addClass('animated flash');
+			$('.card_block_' + gBattle.currentPoints[0]).addClass('shake');
 			
+			var _att = gBattle.currentPoints[0]; //это номер карты атакующего 
+			var _def = null;
+			
+			
+			if (_att == 1) _def = 4;
+			if (_att == 2) _def = 5;
+			if (_att == 3) _def = 6;
+			if (_att == 4) _def = 1;
+			if (_att == 5) _def = 2;
+			if (_att == 6) _def = 3;
+			
+			//проверим на метрвых 
+			if (gBattle.curRoundDeka[ _att ].status == 'dead')
+			{
+				gBattle._cubeEl.find('.getMyGoPoints').removeClass('disabled').addClass('animated tada');
+				return;
+			}
+			
+			
+			
+			//что делать если противник уже убит? 
+			gBattle.cardAttack(_att, _def);
 			
 			
 		}, 3000);
@@ -116,10 +230,117 @@ var gBattle = {
 		var _cube = [];
 		
 		_cube.push( gUtils.rand(1, 6) ); 
-		_cube.push( gUtils.rand(1, 6) );
 		
 		return _cube;
 	},
+	
+	//реализует атаку 
+	cardAttack: function(att, def){
+		fbug('Attacker: ' + att +', Defender: ' + def);
+		
+		var c_att = gBattle.curRoundDeka[ att ];
+		var c_def = gBattle.curRoundDeka[ def ];
+//fbug(c_att);
+//fbug(c_def);		
+		//это сила выстрела 
+		var attStrike = c_att.strike;
+		
+		//а может критикал? 
+		var prcCrit = gUtils.rand(1, 100);
+fbug('Шанс критического удара: ' + c_att.extCrit);		
+		if (prcCrit <= c_att.extCrit)
+		{
+			//ура, критический выстрел 
+			$('.card_block_' + att).addClass('wobble').popover({
+				placement: _p,
+				trigger:'manual',
+				title: 'Отличный удар!',
+				html: true,
+				content: '<b><font style="color:green;">СуперАтака!</font></b>'			
+			}).popover('show');
+			
+			//и это сразу длбавляет 
+			gBattle.curRoundDeka[ att ].extCrit = gBattle.curRoundDeka[ att ].extCrit + 2;	
+
+			setTimeout(function(){
+				$('.card_block_' + att).popover('destroy');
+			}, 1000);
+
+			attStrike = attStrike * 3;			
+		}
+		
+		
+		//а теперь сколько урона?  
+		var defUron = Math.abs(c_def.block - attStrike);
+//fbug(defUron);		
+		//проводим атаку 
+		gBattle.curRoundDeka[ def ].health  = c_def.health - defUron;
+//fbug(gBattle.curRoundDeka[ def ].health); 	
+
+		//увеличим вероятность крит удара 
+		gBattle.curRoundDeka[ att ].extCrit++;
+		
+		//покажем атаку 
+		if (def >= 4)
+			var _p = 'left';
+		else
+			var _p = 'right';
+		
+		
+		$('.card_block_' + def).addClass('shake').popover({
+			placement: _p,
+			trigger:'manual',
+			title: 'Понес урон!',
+			html: true,
+			content: '<b>Нанесли урона: <font style="color:red;">-' + defUron + '</font></b>'			
+		}).popover('show');
+		
+		setTimeout(function(){
+			$('.card_block_' + def).popover('destroy');
+		}, 2000);
+		
+		
+		if (gBattle.curRoundDeka[ def ].health <= 0)
+		{
+			//пометить что убит 
+			gBattle.curRoundDeka[ def ].status = 'dead';
+			
+			$('.card_block_' + def).find('.card_name').html('<!--<img src="'+gUrl.stat + '/img/scull.png" align="absmiddle" />-->&nbsp; Убит в бою').css('color','red');			
+		}
+		else
+		{		
+			$('.card_block_' + def).find('.healh_bar').css('width', gBattle.curRoundDeka[ def ].health + '%');
+			
+		}	
+		
+		setTimeout(function(){
+			$('.card_block_' + def).removeClass('shake wobble');
+			$('.card_block_' + att).removeClass('shake wobble');			
+			
+			//разрешить кидать кубик 
+			gBattle._cubeEl.find('.getMyGoPoints').removeClass('disabled').addClass('animated tada');
+		}, 1500);
+		
+	},
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	//игрок выбрал тип приема для хода 
 	playerCardTypeChange: function(player, type, visual){

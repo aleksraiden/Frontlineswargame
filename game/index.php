@@ -127,9 +127,6 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 			height:100%;
 		  }
 		  
-		 
-		 
-		  
 		  
     </style>
     <link href="<?php echo $url['static_domain']; ?>/css/bootstrap-responsive.css" rel="stylesheet">
@@ -268,31 +265,35 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 					<table>
 						<tr>
 							<td>
+							<div class="card_block_1 animated">
 								<ul class="baraja-container baraja-container-mini" style="">
 									<li class="card card_el combatTypeCard" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
 										<div class="card_title" style="">
 											<div class="progress progress-success" style="float:left;width:80%;margin-top:5px;">
-												<div class="bar" style="width: 40%"></div>
+												<div class="bar healh_bar" style="width: 100%"></div>
 											</div>
 										
 											<div class="pull-right" style="margin-left:2px;">
-												<span class="badge badge-warning">10</span>
-												<span class="badge badge">12</span>
+												<span class="badge badge-warning">11</span>
+												<span class="badge badge">6</span>
 											</div>
 											<div style="float:clear;"></div>
 										</div>
 										<img src="<?php echo $url['static_domain']; ?>/img/cards/human_default.png" alt="image1" style="margin-top:21px;" />
-										<h4>Тяжелый штурмовик</h4>
+										<h4 class="card_name">Тяжелый штурмовик</h4>
 									</li>								
-								</ul>						
+								</ul>
+							</div>
 							</td>
 							<td>
-								<span class="badge badge-success">&nbsp;1</span>
+								<div>
+									<span class="badge badge-success">&nbsp;1</span>
+								</div>								
 							</td>
 							<td rowspan="3" style="width:350px;valign:center;align:center;">
 								
 								<div style="text-align:center;margin-bottom:25px;">
-									<h3>Осталось ходов: <span style="color:red;">15</span></h3>
+									<h2>Ходит карта: <span style="color:red;" class="currentPoints">-</span></h2>
 								</div>
 								
 								
@@ -305,19 +306,15 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 									<button class="btn btn-large btn-danger getMyGoPoints" style="cursor:pointer;" type="button"> Выбросить кубик! </button>	
 								</center>
 <center>
+
 								<table style="margin-top:10px;text-align:center;">
 									<td style="width:50px;border-width:1px;border-color:black;border-style:solid;padding:5px;">
 										<img src="<?php echo $url['static_domain']; ?>/img/cube/0.png" align="absmiddle" class="cube_1" />
 									</td>
-									<td style="width:50px;border-width:1px;border-color:black;border-style:solid;padding:5px;">
-										<img src="<?php echo $url['static_domain']; ?>/img/cube/0.png" align="absmiddle" class="cube_2" />
-									</td>
 								</table>
+
 </center>								
-								<div style="text-align:center;margin-top:30px;">
-									<h1 class="currentPoints" style="line-height:0px;">-</h1>
-									<div style="font-size:11px;">Ходит карта с номером</div>
-								</div>
+								
 								
 								
 								
@@ -327,44 +324,48 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 								<span class="badge badge-important" style="margin-right:-8px;">4&nbsp;</span>
 							</td>
 							<td>
+							<div class="card_block_4 animated">
 								<ul class="baraja-container baraja-container-mini" style="">
 									<li class="card card_el combatTypeCard" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
 										<div class="card_title" style="">
 											<div class="progress progress-danger" style="float:left;width:80%;margin-top:5px;">
-												<div class="bar" style="width: 40%"></div>
+												<div class="bar healh_bar" style="width: 100%"></div>
 											</div>
 										
 											<div class="pull-right" style="margin-left:2px;">
 												<span class="badge badge-important">10</span>
-												<span class="badge badge">12</span>
+												<span class="badge badge">4</span>
 											</div>
 											<div style="float:clear;"></div>
 										</div>
 										<img src="<?php echo $url['static_domain']; ?>/img/cards/hagger_default.png" alt="image1" style="margin-top:21px;" />
-										<h4>Герник</h4>
+										<h4 class="card_name">Герник</h4>
 									</li>								
-								</ul>	
+								</ul>
+							</div>
 							</td>
 						</tr>
 						<tr>
 							<td>
+								<div class="card_block_2 animated">
 								<ul class="baraja-container baraja-container-mini" style="">
 									<li class="card card_el combatTypeCard" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
 										<div class="card_title" style="">
 											<div class="progress progress-success" style="float:left;width:80%;margin-top:5px;">
-												<div class="bar" style="width: 40%"></div>
+												<div class="bar healh_bar" style="width: 100%"></div>
 											</div>
 										
 											<div class="pull-right" style="margin-left:2px;">
-												<span class="badge badge-warning">10</span>
-												<span class="badge badge">12</span>
+												<span class="badge badge-warning">11</span>
+												<span class="badge badge">6</span>
 											</div>
 											<div style="float:clear;"></div>
 										</div>
 										<img src="<?php echo $url['static_domain']; ?>/img/cards/human_default.png" alt="image1" style="margin-top:21px;" />
-										<h4>Тяжелый штурмовик</h4>
+										<h4 class="card_name">Тяжелый штурмовик</h4>
 									</li>								
-								</ul>						
+								</ul>
+								</div>
 							</td>
 							<td>
 								<span class="badge badge-success">&nbsp;2</span>
@@ -373,44 +374,48 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 								<span class="badge badge-important" style="margin-right:-8px;">5&nbsp;</span>
 							</td>
 							<td>
+								<div class="card_block_5 animated">
 								<ul class="baraja-container baraja-container-mini " style="">
 									<li class="card card_el card_p5 combatTypeCard" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
 										<div class="card_title" style="">
 											<div class="progress progress-danger" style="float:left;width:80%;margin-top:5px;">
-												<div class="bar" style="width: 40%"></div>
+												<div class="bar healh_bar" style="width: 100%"></div>
 											</div>
 										
 											<div class="pull-right" style="margin-left:2px;">
 												<span class="badge badge-important">10</span>
-												<span class="badge badge">12</span>
+												<span class="badge badge">4</span>
 											</div>
 											<div style="float:clear;"></div>
 										</div>
 										<img src="<?php echo $url['static_domain']; ?>/img/cards/hagger_default.png" alt="image1" style="margin-top:21px;" />
-										<h4>Герник</h4>
+										<h4 class="card_name">Герник</h4>
 									</li>								
-								</ul>	
+								</ul>
+								</div>
 							</td>
 						</tr>
 						<tr>
 							<td>
+								<div class="card_block_3 animated">
 								<ul class="baraja-container baraja-container-mini" style="">
 									<li class="card card_el card_p3 combatTypeCard" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
 										<div class="card_title" style="">
 											<div class="progress progress-success" style="float:left;width:80%;margin-top:5px;">
-												<div class="bar" style="width: 40%"></div>
+												<div class="bar healh_bar" style="width: 100%"></div>
 											</div>
 										
 											<div class="pull-right" style="margin-left:2px;">
-												<span class="badge badge-warning">10</span>
-												<span class="badge badge">12</span>
+												<span class="badge badge-warning">11</span>
+												<span class="badge badge">6</span>
 											</div>
 											<div style="float:clear;"></div>
 										</div>
 										<img src="<?php echo $url['static_domain']; ?>/img/cards/human_default.png" alt="image1" style="margin-top:21px;" />
-										<h4>Тяжелый штурмовик</h4>
+										<h4 class="card_name">Тяжелый штурмовик</h4>
 									</li>								
-								</ul>						
+								</ul>
+								</div>
 							</td>
 							<td>
 								<span class="badge badge-success">&nbsp;3</span>
@@ -419,23 +424,25 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 								<span class="badge badge-important" style="margin-right:-8px;">6&nbsp;</span>
 							</td>
 							<td >
+								<div class="card_block_6 animated">
 								<ul class="baraja-container baraja-container-mini" style="">
 									<li class="card card_el combatTypeCard" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
 										<div class="card_title" style="">
 											<div class="progress progress-danger" style="float:left;width:80%;margin-top:5px;">
-												<div class="bar" style="width: 40%"></div>
+												<div class="bar healh_bar" style="width: 100%"></div>
 											</div>
 										
 											<div class="pull-right" style="margin-left:2px;">
 												<span class="badge badge-important">10</span>
-												<span class="badge badge">12</span>
+												<span class="badge badge">4</span>
 											</div>
 											<div style="float:clear;"></div>
 										</div>
 										<img id="card_p6" src="<?php echo $url['static_domain']; ?>/img/cards/hagger_default.png" alt="image1" style="margin-top:21px;" />
-										<h4>Герник</h4>
+										<h4 class="card_name">Герник</h4>
 									</li>								
-								</ul>	
+								</ul>
+								</div>
 							</td>
 						</tr>
 						
@@ -454,51 +461,9 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 						
 						
 						
-						
-							<!--
-							<td class="cube_block" style="width:270px;text-align:center;">
-								<center>
-									<h2 class="playerRoundName" style="color:green;"> Ваш ход! </h2>
-								</center>
-								<center>
-									<button class="btn btn-danger getMyGoPoints" style="cursor:pointer;" type="button">Кидать кубик</button>	
-								</center>
-<center>
-								<table style="margin-top:10px;text-align:center;">
-									<td style="width:50px;border-width:1px;border-color:black;border-style:solid;padding:5px;">
-										<img src="<?php echo $url['static_domain']; ?>/img/cube/0.png" align="absmiddle" class="cube_1" />
-									</td>
-									<td style="width:50px;border-width:1px;border-color:black;border-style:solid;padding:5px;">
-										<img src="<?php echo $url['static_domain']; ?>/img/cube/0.png" align="absmiddle" class="cube_2" />
-									</td>
-								</table>
-</center>								
-								<div style="text-align:center;margin-top:30px;">
-									<h1 class="currentPoints" style="line-height:0px;">-</h1>
-									<div style="font-size:11px;">действий на ход</div>
-								</div>
-								
-								<center>
-									<button class="btn btn-success finishMyRound" style="cursor:pointer;" type="button">Ходить!</button>	
-								</center>
 
-							</td>
-							
-							<td class="card_block" style="width:;">
-								<ul class="baraja-container player_0_el"></ul>
-							</td>
-							<td style="width:50px;padding:10px;text-align:center;">
-								<h2>vs</h2>
-							</td>
-							<td class="card_block" style="width:210px;">
-								<ul class="baraja-container player_1_el"></ul>
-							</td>
-							<td class="card_block cur_round_deka" style="width:210px;padding-left:10px;">
-								<ul class="baraja-container "></ul>
-							</td>
-						</tr>
-					</table>-->
 				</div>
+				<!--
 				<div>
 					<h3 style="margin-top:0px;padding-bottom:0px;">					
 					    <ul class="nav nav-pills">
@@ -532,12 +497,13 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 						
 					</h3>
 				</div>
+				-->
+				<!--
 				<div style="text-align:center;" class="player_card_deka">
 						
 						<ul class="baraja-container" style="">
 							<li class="card card_el combatTypeCard" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
 								<div class="card_title" style="">
-									<!--<span class="badge badge-info">2</span>-->
 									<span class="label">пехота</span> 
 									<span class="pull-right">
 										<span class="badge badge-warning">10</span>
@@ -579,16 +545,11 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 						
 							
 				</div>
+				-->
 				</center>
 				</div>
-
 			</div>
-			<!--<div class="span3">
-				<div style="margin-top:30px;">
-					<h3>Текущий ход</h3>
-				</div>
-			</div> -->
-			
+
         </div>
 
     </div>
@@ -620,7 +581,7 @@ $( document ).ready( function(){
 				
 	<!-- набор карт VIP доступов -->
 	<div class="base_deka_cards">
-		<!-- набор карт VIP доступов -->
+		<!-- набор карт VIP доступов 
 		<ul class="baraja-container">
 			<li class="card card_el" card-id="0">
 				<span class="label label-warning">Стойки</span>
@@ -638,6 +599,7 @@ $( document ).ready( function(){
 				<span class="badge">карт: 2</span>
 			</li>	
 		</ul>
+		-->
 	</div>
 
 
