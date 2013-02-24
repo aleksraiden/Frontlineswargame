@@ -305,7 +305,7 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 				<center>
 					<table>
 						<tr>
-							<td rowspan="2" style="width:300px;margin-right:20px;" valign="top" align="center">
+							<td rowspan="3" style="width:300px;margin-right:20px;" valign="top" align="center">
 								<div style="margin:10px;">
 									<div style="text-align:center;">
 										<label for="checkbox1">Атака x2</label>
@@ -354,6 +354,51 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 										<input id="checkbox6" type="checkbox">
 									</div>
 								</div>
+								
+								
+								<div class="user_support" style="">
+									<div class="user_deka_ctrl" style="text-align:center;">
+										<center>
+										Мои карты
+										<ul class="nav nav-pills">
+											<li class="active">
+												<a href="javascript: void gBattle.playerDeka.previous();"> < </a>
+											</li>
+											<li class="">
+												<a href="javascript: void gBattle.rollOutDeka();"> Показать </a>
+											</li>
+											<li class="active">
+												<a href="javascript: void gBattle.playerDeka.next();"> > </a>
+											</li>
+										</ul>
+										</center>
+									</div>
+								
+									<div style="text-align:center;" class="player_card_deka">
+						
+										<ul class="baraja-container" style="">
+											<li class="card card_el combatTypeCard" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
+												<div class="card_title" style="">
+													<span class="label">пехота</span> 
+													<span class="pull-right">
+														<span class="badge badge-warning">10</span>
+														<span class="badge badge">12</span>
+													</span>
+												</div>
+												<img src="<?php echo $url['static_domain']; ?>/img/cards/human_default.png" alt="image1" />
+												<h4>Тяжелый штурмовик</h4>
+												
+												<div class="card_content">
+													<p>Суперсолдат на поле боя, способный собой заменить небольшой пехотный отряд в полной выкладке</p>
+												</div>
+											</li>								
+										</ul>
+									</div>
+								
+								</div>
+								
+								
+								
 							</td>
 							<td>
 							<div class="card_block_1 animated">
@@ -487,48 +532,9 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 							</td>
 						</tr>
 						<tr>
-							<td style="margin-right:20px;">
-								<div class="user_support">
-									<div class="user_deka_ctrl" style="text-align:center;">
-										<ul class="nav nav-pills">
-											<li>
-												<a href="javascript: void;"> Мои карты: </a>
-											</li>
-											<li class="active">
-												<a href="javascript: void gBattle.playerDeka.previous();"> < </a>
-											</li>
-											<li class="">
-												<a href="javascript: void gBattle.rollOutDeka();"> Показать </a>
-											</li>
-											<li class="active">
-												<a href="javascript: void gBattle.playerDeka.next();"> > </a>
-											</li>
-										</ul>
-									</div>
+							<!--<td style="margin-right:20px;" align="center">
 								
-									<div style="text-align:center;" class="player_card_deka">
-						
-										<ul class="baraja-container" style="">
-											<li class="card card_el combatTypeCard" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
-												<div class="card_title" style="">
-													<span class="label">пехота</span> 
-													<span class="pull-right">
-														<span class="badge badge-warning">10</span>
-														<span class="badge badge">12</span>
-													</span>
-												</div>
-												<img src="<?php echo $url['static_domain']; ?>/img/cards/human_default.png" alt="image1" />
-												<h4>Тяжелый штурмовик</h4>
-												
-												<div class="card_content">
-													<p>Суперсолдат на поле боя, способный собой заменить небольшой пехотный отряд в полной выкладке</p>
-												</div>
-											</li>								
-										</ul>
-									</div>
-								
-								</div>
-							</td>
+							</td>-->
 							<td>
 								<div class="card_block_3 animated">
 								<ul class="baraja-container baraja-container-mini" style="">
