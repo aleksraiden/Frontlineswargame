@@ -501,6 +501,7 @@ fbug('Шанс критического удара: ' + c_att.extCrit);
 	},
 	
 	rollOutDeka: function(){
+		return false;
 		gBattle.playerDeka.fan( {
 			speed : 200,
 			easing : 'ease-out',
