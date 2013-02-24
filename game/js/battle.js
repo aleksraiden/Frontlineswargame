@@ -119,20 +119,7 @@ var gBattle = {
 	
 	curRoundpoints: 0, //сколько выпало на этом раунде
 	
-	_cardsTypeTpl: '<li class="card card_el combatTypeCard" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">' + 
-						'<div style="text-align:left;"><span class="label">Стойки</span> <span class="badge badge-info pull-right">2</span></div>' + 
-						'<img src="'+gUrl.stat+'/img/cards/stance_default.jpg" alt="image1" /><h4>Боевые стойки</h4><p>Начальные позиции в любой драке</p>' +
-					'</li>' + 
-					'<li class="card card_el combatTypeCard" card-type="strike" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">' + 
-						'<div style="text-align:left;"><span class="label label-success">Удары</span> <span class="badge badge-info pull-right">2</span></div>' + 
-						'<img src="'+gUrl.stat+'/img/cards/strike_default.jpg" alt="image1" /><h4>Удары руками и ногами</h4><p>Наносите повреждения противнику</p>' + 
-						'<span class="badge">карт: 2</span>' + 
-					'</li>' + 
-					'<li class="card card_el combatTypeCard" card-type="block" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">'+
-						'<div style="text-align:left;"><span class="label label-important">Блоки</span> <span class="badge badge-info pull-right">2</span></div>'+
-						'<img src="'+gUrl.stat+'/img/cards/block_default.jpg" alt="image1" /><h4>Блоки</h4><p>Защита от ударов врага</p>'+
-						'<span class="badge">карт: 2</span>' +
-					'</li>',
+	
 	
 	
 	//начало сражения

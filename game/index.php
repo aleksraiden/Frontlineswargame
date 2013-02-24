@@ -165,7 +165,7 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 		
         var gPlayer = {
 			type: 'human', //bully
-			user: <?php echo json_decode($user, true); ?>,
+			user: <?php if (!empty($user)) echo json_decode($user, true); else echo 'null'; ?>,
 			id: 1,
 
 			avatar: null, //карта аватара 
@@ -359,7 +359,7 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 								<div class="user_support" style="">
 									<div class="user_deka_ctrl" style="text-align:center;">
 										<center>
-										Мои карты
+										Мой отряд (Support deka)
 										<ul class="nav nav-pills">
 											<li class="active">
 												<a href="javascript: void gBattle.playerDeka.previous();"> < </a>
