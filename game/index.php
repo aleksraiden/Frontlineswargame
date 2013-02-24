@@ -306,7 +306,7 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 								</div>
 								<div style="margin:10px;">
 									<div style="text-align:center;">
-										<label for="checkbox3">Диапазон атак (-0.5 +1.5)</label>
+										<label for="checkbox3">Расширенная атака (-0.5...+1.5)</label>
 									</div>
 									<div id="ctrl_btn_range_strike">
 										<input id="checkbox3" type="checkbox">
