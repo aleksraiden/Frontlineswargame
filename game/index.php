@@ -332,7 +332,7 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 								</div>
 								<div style="margin:10px;">
 									<div style="text-align:center;">
-										<label for="checkbox4">Замена убитых (Support)</label>
+										<label for="checkbox4">Замена убитых карт (Support)</label>
 									</div>
 									<div id="ctrl_btn_support_card">
 										<input id="checkbox4" type="checkbox">
@@ -348,7 +348,7 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 								</div>
 								<div style="margin:10px;">
 									<div style="text-align:center;">
-										<label for="checkbox6">Тасовать открытые</label>
+										<label for="checkbox6">Тасовать боевой строй карт</label>
 									</div>
 									<div id="ctrl_btn_renumerate_playable">
 										<input id="checkbox6" type="checkbox">
