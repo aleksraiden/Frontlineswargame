@@ -556,7 +556,7 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 											</div>
 											<div style="float:clear;"></div>
 										</div>
-										<img src="<?php echo $url['static_domain']; ?>/img/cards/hagger_default.png" alt="image1" style="margin-top:21px;" />
+										<img src="<?php echo $url['static_domain']; ?>/img/cards/hagger_default.png" alt="image1" style="margin-top:21px;" class="card_img" />
 										<h4 class="card_name">Герник</h4>
 									</li>								
 								</ul>
@@ -579,7 +579,7 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 											</div>
 											<div style="float:clear;"></div>
 										</div>
-										<img src="<?php echo $url['static_domain']; ?>/img/cards/human_default.png" alt="image1" style="margin-top:21px;" />
+										<img src="<?php echo $url['static_domain']; ?>/img/cards/human_default.png" alt="image1" style="margin-top:21px;" class="card_img" />
 										<h4 class="card_name">Тяжелый штурмовик</h4>
 									</li>								
 								</ul>
@@ -606,7 +606,7 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 											</div>
 											<div style="float:clear;"></div>
 										</div>
-										<img src="<?php echo $url['static_domain']; ?>/img/cards/hagger_default.png" alt="image1" style="margin-top:21px;" />
+										<img src="<?php echo $url['static_domain']; ?>/img/cards/hagger_default.png" alt="image1" style="margin-top:21px;" class="card_img" />
 										<h4 class="card_name">Герник</h4>
 									</li>								
 								</ul>
@@ -632,7 +632,7 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 											</div>
 											<div style="float:clear;"></div>
 										</div>
-										<img src="<?php echo $url['static_domain']; ?>/img/cards/human_default.png" alt="image1" style="margin-top:21px;" />
+										<img src="<?php echo $url['static_domain']; ?>/img/cards/human_default.png" alt="image1" style="margin-top:21px;" class="card_img" />
 										<h4 class="card_name">Тяжелый штурмовик</h4>
 									</li>								
 								</ul>
@@ -659,7 +659,7 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 											</div>
 											<div style="float:clear;"></div>
 										</div>
-										<img id="card_p6" src="<?php echo $url['static_domain']; ?>/img/cards/hagger_default.png" alt="image1" style="margin-top:21px;" />
+										<img id="card_p6" src="<?php echo $url['static_domain']; ?>/img/cards/hagger_default.png" alt="image1" style="margin-top:21px;" class="card_img" />
 										<h4 class="card_name">Герник</h4>
 									</li>								
 								</ul>
