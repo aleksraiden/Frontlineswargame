@@ -241,7 +241,12 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 					}
 				});
 				
+				//инит деки саппорта 
+				gBattle.playerDeka = $('.main_panel_el .player_card_deka').find('.baraja-container').baraja();
+	
+				$('.main_panel_el .player_card_deka').find('.combatTypeCard').click(function(e){
 				
+				});
 				
 				
 				
@@ -297,16 +302,16 @@ if (array_key_exists('GAME_USER', $_COOKIE))
         <div class="span12">
             <!--Body content-->
 			<div style="background-color:#CFC6CA;">
-				<h3>Frontlines War: Линия фронта - он-лайн карточная тактическая стратегия &nbsp;<span class="label label-important" style="position:absolute;">Gameplay preview</span></h3>
+				<h3 style="margin-top:0px;">Frontlines War: Линия фронта - он-лайн карточная тактическая стратегия &nbsp;<span class="label label-important" style="position:absolute;">Gameplay preview</span></h3>
 			</div>	
 			 
-			<div class="main_panel_el" style="">
+			<div class="main_panel_el" style="margin-top:-15px;">
 				<div class="player_vs_player_deka" style="height:680px;text-align:center;width:100%;">
 				<center>
 					<table>
 						<tr>
 							<td rowspan="3" style="width:300px;margin-right:20px;" valign="top" align="center">
-								<div style="margin:10px;">
+								<div style="margin:5px;">
 									<div style="text-align:center;">
 										<label for="checkbox1">Атака x2</label>
 									</div>
@@ -314,7 +319,7 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 										<input id="checkbox1" type="checkbox">
 									</div>
 								</div>
-								<div style="margin:10px;">
+								<div style="margin:5px;">
 									<div style="text-align:center;">
 										<label for="checkbox2">Случайный противник</label>
 									</div>
@@ -322,7 +327,7 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 										<input id="checkbox2" type="checkbox">
 									</div>
 								</div>
-								<div style="margin:10px;">
+								<div style="margin:5px;">
 									<div style="text-align:center;">
 										<label for="checkbox3">Расширенная атака (-0.5...+1.5)</label>
 									</div>
@@ -330,14 +335,15 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 										<input id="checkbox3" type="checkbox">
 									</div>
 								</div>
-								<div style="margin:10px;">
+								<div style="margin:5px;">
 									<div style="text-align:center;">
-										<label for="checkbox4">Замена убитых карт (Support)</label>
+										<label for="checkbox4">Замена карт (из деки Support)</label>
 									</div>
 									<div id="ctrl_btn_support_card">
 										<input id="checkbox4" type="checkbox">
 									</div>
 								</div>
+								<!--
 								<div style="margin:10px;">
 									<div style="text-align:center;">
 										<label for="checkbox5">Замена любых карт</label>
@@ -346,7 +352,8 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 										<input id="checkbox5" type="checkbox">
 									</div>
 								</div>
-								<div style="margin:10px;">
+								-->
+								<div style="margin:5px;">
 									<div style="text-align:center;">
 										<label for="checkbox6">Тасовать боевой строй карт</label>
 									</div>
@@ -359,13 +366,13 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 								<div class="user_support" style="">
 									<div class="user_deka_ctrl" style="text-align:center;">
 										<center>
-										Мой отряд (Support deka)
+										<!--Мой отряд (Support deka)-->
 										<ul class="nav nav-pills">
 											<li class="active">
 												<a href="javascript: void gBattle.playerDeka.previous();"> < </a>
 											</li>
 											<li class="">
-												<a href="javascript: void gBattle.rollOutDeka();"> Показать </a>
+												<a href="javascript: void gBattle.rollOutDeka();"> В отряде: 6 </a>
 											</li>
 											<li class="active">
 												<a href="javascript: void gBattle.playerDeka.next();"> > </a>
@@ -377,12 +384,12 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 									<div style="text-align:center;" class="player_card_deka">
 						
 										<ul class="baraja-container" style="">
-											<li class="card card_el combatTypeCard" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
+											<li class="card card_el combatTypeCard card_1" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
 												<div class="card_title" style="">
 													<span class="label">пехота</span> 
 													<span class="pull-right">
-														<span class="badge badge-warning">10</span>
-														<span class="badge badge">12</span>
+														<span class="badge badge-warning">11</span>
+														<span class="badge badge">6</span>
 													</span>
 												</div>
 												<img src="<?php echo $url['static_domain']; ?>/img/cards/human_default.png" alt="image1" />
@@ -391,7 +398,82 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 												<div class="card_content">
 													<p>Суперсолдат на поле боя, способный собой заменить небольшой пехотный отряд в полной выкладке</p>
 												</div>
-											</li>								
+											</li>
+											<li class="card card_el combatTypeCard card_2" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
+												<div class="card_title" style="">
+													<span class="label">пехота</span> 
+													<span class="pull-right">
+														<span class="badge badge-warning">11</span>
+														<span class="badge badge">6</span>
+													</span>
+												</div>
+												<img src="<?php echo $url['static_domain']; ?>/img/cards/human_default.png" alt="image1" />
+												<h4>Тяжелый штурмовик</h4>
+												
+												<div class="card_content">
+													<p>Суперсолдат на поле боя, способный собой заменить небольшой пехотный отряд в полной выкладке</p>
+												</div>
+											</li>
+											<li class="card card_el combatTypeCard card_3" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
+												<div class="card_title" style="">
+													<span class="label">пехота</span> 
+													<span class="pull-right">
+														<span class="badge badge-warning">11</span>
+														<span class="badge badge">6</span>
+													</span>
+												</div>
+												<img src="<?php echo $url['static_domain']; ?>/img/cards/human_default.png" alt="image1" />
+												<h4>Тяжелый штурмовик</h4>
+												
+												<div class="card_content">
+													<p>Суперсолдат на поле боя, способный собой заменить небольшой пехотный отряд в полной выкладке</p>
+												</div>
+											</li>
+											<li class="card card_el combatTypeCard card_4" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
+												<div class="card_title" style="">
+													<span class="label">пехота</span> 
+													<span class="pull-right">
+														<span class="badge badge-warning">11</span>
+														<span class="badge badge">6</span>
+													</span>
+												</div>
+												<img src="<?php echo $url['static_domain']; ?>/img/cards/human_default.png" alt="image1" />
+												<h4>Тяжелый штурмовик</h4>
+												
+												<div class="card_content">
+													<p>Суперсолдат на поле боя, способный собой заменить небольшой пехотный отряд в полной выкладке</p>
+												</div>
+											</li>
+											<li class="card card_el combatTypeCard card_5" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
+												<div class="card_title" style="">
+													<span class="label">пехота</span> 
+													<span class="pull-right">
+														<span class="badge badge-warning">11</span>
+														<span class="badge badge">6</span>
+													</span>
+												</div>
+												<img src="<?php echo $url['static_domain']; ?>/img/cards/human_default.png" alt="image1" />
+												<h4>Тяжелый штурмовик</h4>
+												
+												<div class="card_content">
+													<p>Суперсолдат на поле боя, способный собой заменить небольшой пехотный отряд в полной выкладке</p>
+												</div>
+											</li>
+											<li class="card card_el combatTypeCard card_6" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
+												<div class="card_title" style="">
+													<span class="label">пехота</span> 
+													<span class="pull-right">
+														<span class="badge badge-warning">11</span>
+														<span class="badge badge">6</span>
+													</span>
+												</div>
+												<img src="<?php echo $url['static_domain']; ?>/img/cards/human_default.png" alt="image1" />
+												<h4>Тяжелый штурмовик</h4>
+												
+												<div class="card_content">
+													<p>Суперсолдат на поле боя, способный собой заменить небольшой пехотный отряд в полной выкладке</p>
+												</div>
+											</li>
 										</ul>
 									</div>
 								
@@ -415,7 +497,7 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 											</div>
 											<div style="float:clear;"></div>
 										</div>
-										<img src="<?php echo $url['static_domain']; ?>/img/cards/human_default.png" alt="image1" style="margin-top:21px;" />
+										<img src="<?php echo $url['static_domain']; ?>/img/cards/human_default.png" alt="image1" class="card_img" style="margin-top:21px;" />
 										<h4 class="card_name">Тяжелый штурмовик</h4>
 									</li>								
 								</ul>

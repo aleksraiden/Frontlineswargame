@@ -322,7 +322,11 @@ fbug('Шанс критического удара: ' + c_att.extCrit);
 			//пометить что убит 
 			gBattle.curRoundDeka[ def ].status = 'dead';
 			
-			$('.card_block_' + def).find('.card_name').html('<!--<img src="'+gUrl.stat + '/img/scull.png" align="absmiddle" />-->&nbsp; Убит в бою').css('color','red');			
+			$('.card_block_' + def).find('.card_name').html('<!--<img src="'+gUrl.stat + '/img/scull.png" align="absmiddle" />-->&nbsp; Убит в бою').css('color','red');
+			
+			$('.card_block_' + def).find('.card_img').attr('src', gUrl.stat + '/img/cards/human_default_dead.png');	
+				
+			$('.card_block_' + def).find('.healh_bar').css('width', '0%');
 		}
 		else
 		{		
@@ -487,15 +491,16 @@ fbug('Шанс критического удара: ' + c_att.extCrit);
 		_log( card ); //выбранная карта для хода 	
 	},
 	
+	//открывает деку карт сапорта 
 	rollOutDeka: function(){
-		return false;
 		gBattle.playerDeka.fan( {
-			speed : 200,
-			easing : 'ease-out',
-			range : 100,
-			direction : 'right',
-			origin : { x : 50, y : 200 },
-			center : true 
+				speed : 200,
+				easing : 'ease-out',
+				range : 20,
+				direction : 'right',
+				origin : { x : 50, y : 200 },
+				translation : 300,
+				center : false 
 		});	
 	},
 	
