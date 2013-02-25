@@ -340,7 +340,7 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 										<label for="checkbox4">Замена карт (из деки Support)</label>
 									</div>
 									<div id="ctrl_btn_support_card">
-										<input id="checkbox4" type="checkbox">
+										<input id="checkbox4" type="checkbox" disabled>
 									</div>
 								</div>
 								<!--
@@ -358,12 +358,12 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 										<label for="checkbox6">Тасовать боевой строй карт</label>
 									</div>
 									<div id="ctrl_btn_renumerate_playable">
-										<input id="checkbox6" type="checkbox">
+										<input id="checkbox6" type="checkbox" disabled>
 									</div>
 								</div>
 								
 								
-								<div class="user_support" style="">
+								<div class="user_support" style="disabled">
 									<div class="user_deka_ctrl" style="text-align:center;">
 										<center>
 										<!--Мой отряд (Support deka)-->
