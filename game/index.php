@@ -240,6 +240,13 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 						gBattle.ctrl.renumerate_playable = status;
 					}
 				});
+				$('#ctrl_btn_user_select_enemy').toggleButtons({
+					onChange: function ($el, status, e) {
+						gBattle.ctrl.select_enemy = status;
+					}
+				});
+				
+				
 				
 				//инит деки саппорта 
 				gBattle.playerDeka = $('.main_panel_el .player_card_deka').find('.baraja-container').baraja();
@@ -355,12 +362,20 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 								-->
 								<div style="margin:5px;">
 									<div style="text-align:center;">
+										<label for="checkbox7"><b>Выбор противника</b></label>
+									</div>
+									<div id="ctrl_btn_user_select_enemy">
+										<input id="checkbox7" type="checkbox">
+									</div>
+								</div>
+								<!--<div style="margin:5px;">
+									<div style="text-align:center;">
 										<label for="checkbox6">Тасовать боевой строй карт</label>
 									</div>
 									<div id="ctrl_btn_renumerate_playable">
 										<input id="checkbox6" type="checkbox" disabled>
 									</div>
-								</div>
+								</div>-->
 								
 								
 								<div class="user_support" style="disabled">
@@ -483,7 +498,7 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 								
 							</td>
 							<td>
-							<div class="card_block_1 animated">
+							<div class="card_block_1 animated" cardi="1">
 								<ul class="baraja-container baraja-container-mini" style="">
 									<li class="card card_el combatTypeCard" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
 										<div class="card_title" style="">
@@ -542,9 +557,9 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 								<span class="badge badge-important" style="margin-right:-8px;">4&nbsp;</span>
 							</td>
 							<td>
-							<div class="card_block_4 animated">
+							<div class="card_block_4 animated" cardi="4">
 								<ul class="baraja-container baraja-container-mini" style="">
-									<li class="card card_el combatTypeCard" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
+									<li class="card card_el combatTypeCard cardEnemy" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
 										<div class="card_title" style="">
 											<div class="progress progress-danger" style="float:left;width:80%;margin-top:5px;">
 												<div class="bar healh_bar" style="width: 100%"></div>
@@ -565,7 +580,7 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 						</tr>
 						<tr>
 							<td>
-								<div class="card_block_2 animated">
+								<div class="card_block_2 animated" cardi="2">
 								<ul class="baraja-container baraja-container-mini" style="">
 									<li class="card card_el combatTypeCard" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
 										<div class="card_title" style="">
@@ -592,9 +607,9 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 								<span class="badge badge-important" style="margin-right:-8px;">5&nbsp;</span>
 							</td>
 							<td>
-								<div class="card_block_5 animated">
+								<div class="card_block_5 animated" cardi="5">
 								<ul class="baraja-container baraja-container-mini " style="">
-									<li class="card card_el card_p5 combatTypeCard" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
+									<li class="card card_el card_p5 combatTypeCard cardEnemy" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
 										<div class="card_title" style="">
 											<div class="progress progress-danger" style="float:left;width:80%;margin-top:5px;">
 												<div class="bar healh_bar" style="width: 100%"></div>
@@ -618,7 +633,7 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 								
 							</td>-->
 							<td>
-								<div class="card_block_3 animated">
+								<div class="card_block_3 animated" cardi="3">
 								<ul class="baraja-container baraja-container-mini" style="">
 									<li class="card card_el card_p3 combatTypeCard" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
 										<div class="card_title" style="">
@@ -645,9 +660,9 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 								<span class="badge badge-important" style="margin-right:-8px;">6&nbsp;</span>
 							</td>
 							<td >
-								<div class="card_block_6 animated">
+								<div class="card_block_6 animated" cardi="6">
 								<ul class="baraja-container baraja-container-mini" style="">
-									<li class="card card_el combatTypeCard" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
+									<li class="card card_el combatTypeCard cardEnemy" card-type="stance" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
 										<div class="card_title" style="">
 											<div class="progress progress-danger" style="float:left;width:80%;margin-top:5px;">
 												<div class="bar healh_bar" style="width: 100%"></div>

@@ -15,7 +15,8 @@ var gBattle = {
 		range_strike: false, //атака не так как у карты, а в диапазоне от -50 до +200% (до attackx2)
 		support_card: false, //разрешает заменять убитые карты
 		rehash_any_card: false, //разрешает заменять любые карты
-		renumerate_playable: false //можно в бою менять свои открытые карты местами (то есть была под номером 1 можно поменять на 2 или 3 сместить
+		renumerate_playable: false, //можно в бою менять свои открытые карты местами (то есть была под номером 1 можно поменять на 2 или 3 сместить
+		select_enemy: false //юзер выбирает кого атаковать? 
 	},
 	
 	curPlayerPos: 0, //кто сейчас ходит 
@@ -133,6 +134,28 @@ var gBattle = {
 			gBattle.goRound();
 		});
 		
+		
+		//это если мы выбираем противника 
+		$('.card_block_6, .card_block_5, .card_block_4').click(function(e){
+			var _i = $(e.currentTarget).attr('cardi');
+			
+			fbug('Attack: ' + gBattle.currentPoints[0] + ', defence: ' + _i);
+			
+			
+			$('.card_block_6, .card_block_5, .card_block_4').find('.combatTypeCard').css({
+				'border-color': '',
+				'border-width' :'',
+				'border-style' : ''
+			});	
+			
+			$('.cube_block').popover('destroy');			
+			
+			gBattle.cardAttack(gBattle.currentPoints[0], _i);
+		});
+		
+		
+		
+		
 		gBattle.cacheCube();
 		
 	},
@@ -225,6 +248,25 @@ var gBattle = {
 				return;
 			}
 			
+			if ((gBattle.ctrl.select_enemy == true) && (_att <= 3))
+			{
+				//юзер выбирает карту для нанесения атаки 
+				$('.card_block_6, .card_block_5, .card_block_4').find('.combatTypeCard').css({
+					'border-color': 'green',
+					'border-width' :'2px',
+					'border-style' : 'solid'
+				});	
+				
+				$('.cube_block').popover({
+					placement: 'top',
+					trigger:'manual',
+					title: 'Твой ход!',
+					html: true,
+					content: '<b><font style="color:green;">Твой ход! Выбери карту противника, которую атаковать</font></b>'			
+				}).popover('show');			
+				
+				return;
+			}	
 			
 			
 			//что делать если противник уже убит? 
