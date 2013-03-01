@@ -245,6 +245,12 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 						gBattle.ctrl.select_enemy = status;
 					}
 				});
+				$('#ctrl_btn_attack_miss').toggleButtons({
+					onChange: function ($el, status, e) {
+						gBattle.ctrl.attack_miss = status;
+					}
+				});
+				
 				
 				
 				
@@ -344,13 +350,23 @@ if (array_key_exists('GAME_USER', $_COOKIE))
 								</div>
 								<div style="margin:5px;">
 									<div style="text-align:center;">
+										<label for="checkbox8">Учет вероятности промаха</label>
+									</div>
+									<div id="ctrl_btn_attack_miss">
+										<input id="checkbox8" type="checkbox">
+									</div>
+								</div>
+								
+								<!--
+								<div style="margin:5px;">
+									<div style="text-align:center;">
 										<label for="checkbox4">Замена карт (из деки Support)</label>
 									</div>
 									<div id="ctrl_btn_support_card">
 										<input id="checkbox4" type="checkbox" disabled>
 									</div>
 								</div>
-								<!--
+								
 								<div style="margin:10px;">
 									<div style="text-align:center;">
 										<label for="checkbox5">Замена любых карт</label>

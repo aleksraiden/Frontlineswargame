@@ -16,7 +16,8 @@ var gBattle = {
 		support_card: false, //разрешает заменять убитые карты
 		rehash_any_card: false, //разрешает заменять любые карты
 		renumerate_playable: false, //можно в бою менять свои открытые карты местами (то есть была под номером 1 можно поменять на 2 или 3 сместить
-		select_enemy: false //юзер выбирает кого атаковать? 
+		select_enemy: false, //юзер выбирает кого атаковать? 
+		attack_miss: false //вводим вариант промаха при атаке 
 	},
 	
 	curPlayerPos: 0, //кто сейчас ходит 
@@ -39,6 +40,7 @@ var gBattle = {
 			strike: 15,
 			block: 6,
 			extCrit: 7, //% вероятности нанести крит удар (х3)
+			miss: 20, //% промаха 
 			flee: 2
 		},
 		{
@@ -54,6 +56,7 @@ var gBattle = {
 			strike: 15,
 			block: 6,
 			extCrit: 7, //% вероятности нанести крит удар (х3)
+			miss: 20,
 			flee: 2
 		},
 		{
@@ -69,6 +72,7 @@ var gBattle = {
 			strike: 15,
 			block: 6,
 			extCrit: 7, //% вероятности нанести крит удар (х3)
+			miss: 20,
 			flee: 2
 		},
 		{
@@ -84,6 +88,7 @@ var gBattle = {
 			strike: 14, 
 			block: 4, 
 			extCrit: 5, //% вероятности нанести крит удар (х3)
+			miss: 20,
 			flee: 3 
 		},
 		{
@@ -99,6 +104,7 @@ var gBattle = {
 			strike: 14, 
 			block: 4, 
 			extCrit: 5, //% вероятности нанести крит удар (х3)
+			miss: 20,
 			flee: 3 
 		},
 		{
@@ -114,6 +120,7 @@ var gBattle = {
 			strike: 14, 
 			block: 4, 
 			extCrit: 5, //% вероятности нанести крит удар (х3)
+			miss: 20,
 			flee: 3 
 		}
 	],
@@ -304,6 +311,48 @@ var gBattle = {
 		if (gBattle.ctrl.attackx2 == true)
 			attStrike = attStrike * 2;
 		
+		if (def >= 4)
+			var _p = 'left';
+		else
+			var _p = 'right';
+			
+		if (att >= 4)
+			var _pa = 'left';
+		else
+			var _pa = 'right';
+		
+		//учет промаха 
+		if (gBattle.ctrl.attack_miss == true)
+		{
+			var _miss = gUtils.rand(0, 100);
+			
+			if (_miss <= c_att.miss)
+			{
+				$('.card_block_' + att).addClass('wobble').popover({
+					placement: _pa,
+					trigger:'manual',
+					title: 'Промах',
+					html: true,
+					content: '<b><font style="color:blue;">Промах!</font></b>'			
+				}).popover('show');
+				
+				setTimeout(function(){
+					$('.card_block_' + att).popover('destroy');
+
+					$('.card_block_' + def).removeClass('shake wobble');
+					$('.card_block_' + att).removeClass('shake wobble');			
+					
+					//разрешить кидать кубик 
+					gBattle._cubeEl.find('.getMyGoPoints').removeClass('disabled').addClass('animated tada');				
+					
+				}, 1000);			
+			
+				return;
+			}		
+		}
+		
+		
+		
 		//а может критикал? 
 		var prcCrit = gUtils.rand(1, 100);
 fbug('Шанс критического удара: ' + c_att.extCrit);		
@@ -325,7 +374,9 @@ fbug('Шанс критического удара: ' + c_att.extCrit);
 				$('.card_block_' + def).popover('destroy');
 			}, 1000);
 
-			attStrike = attStrike * 2;			
+			attStrike = attStrike * 2;	
+
+			gBattle.curRoundDeka[ def ].miss++; //дополнительно 
 		}
 		
 		
@@ -334,18 +385,16 @@ fbug('Шанс критического удара: ' + c_att.extCrit);
 //fbug(defUron);		
 		//проводим атаку 
 		gBattle.curRoundDeka[ def ].health  = c_def.health - defUron;
+		
+		//пропущенная атака увеличивает промахи 
+		gBattle.curRoundDeka[ def ].miss++;
+		
 //fbug(gBattle.curRoundDeka[ def ].health); 	
 
 		//увеличим вероятность крит удара 
 		gBattle.curRoundDeka[ att ].extCrit++;
 		
-		//покажем атаку 
-		if (def >= 4)
-			var _p = 'left';
-		else
-			var _p = 'right';
-		
-		
+		//покажем атаку		
 		$('.card_block_' + def).addClass('shake').popover({
 			placement: _p,
 			trigger:'manual',
